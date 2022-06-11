@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <!-- 
   @if (Route::has('login'))
   <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
     @auth    // ログイン中の場合
@@ -20,9 +21,73 @@
       @endif
     @endif
   </div>
-@endif
+  @endif-->
 
-  <h1>タイトル</h1>
+  <!-- 追加・更新ページも作成するが、Headerは共通のため、別ファイル移動後yield→それおぞれのページでextendに変更 -->
+  <header class="header">
+    <h1 class="title">SalesManagement</h1>
+    <div class="header--right">
+      <div class="add--button"></div>
+      <div class="setting--button"></div>
+      <div class="logout--button"></div>
+      <!-- Logoutリンクを認証機能から引っ張ってくる -->
+    </div>
+  </header>
+  <div class="search--container">
+    <form action="/find" method="post"></form>
+    @csrf
+    <input type="text" value="企業名または代表者名で検索" name="input" class="search--box">
+  </div>
+  <div class="client--list">
+    <div class="lead--list">
+      @if($items->property->getProperty = 'lead')
+        @foreach($items as $obj)
+        <div class="each--client">
+          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+        </div>
+        @endforeach
+      @endif
+    </div>
+    <div class="mail-sent--list">
+      @if($items->property->getProperty = 'mail')
+        @foreach($items as $obj)
+        <div class="each--client">
+          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+        </div>
+        @endforeach
+      @endif
+    </div>
+    <div class="appointed-list">
+      @if($items->property->getProperty = 'appointed')
+        @foreach($items as $obj)
+        <div class="each--client">
+          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+        </div>
+        @endforeach
+      @endif
+    </div>
+    <div class="negotiated--list">
+      @if($items->property->getProperty = 'negotiated')
+        @foreach($items as $obj)
+        <div class="each--client">
+          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+        </div>
+        @endforeach
+      @endif
+    </div>
+    <div class="contracted--list">
+      @if($items->property->getProperty = 'contracted')
+        @foreach($items as $obj)
+        <div class="each--client">
+          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+        </div>
+        @endforeach
+      @endif
+    </div>
+  </div>
+
+
+
 </body>
 
 </html>

@@ -14,4 +14,8 @@ class Property extends Model
     public static $rules = array(
         'property' => 'required'
     );
+
+    public function getProperty(){
+        return $this->property;
+    }
 }

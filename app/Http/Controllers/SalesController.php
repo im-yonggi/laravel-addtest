@@ -15,8 +15,7 @@ class SalesController extends Controller
         $items = Company::where('user_id', $user->id)->get();
         return view('index', $items);
     }
-    // belongsToからProperty取得の必要あり、追って更新
-
+    
     public function edit($param){
         $id = $param;
         $item = Company::where('id', $id)->first();
@@ -25,7 +24,7 @@ class SalesController extends Controller
 
     public function update(Request $request){
         $this->validate($request, Company::$rules);
-        // propertyテーブル（モデル）のValidationを追加する方法を考える。
+        // propertyテーブル（モデル）のValidationはトグル選択のため不要
         $item = $request->all();
         unset($item['_token']);
         Company::where(id, $item->id)->update($item);
@@ -39,14 +38,14 @@ class SalesController extends Controller
 
     public function create(Request $request){
         $this->validate($request, Company::$rules);
-        // propertyテーブル（モデル）のValidationを追加する方法を考える。
+        // propertyテーブル（モデル）のValidationはトグル選択のため不要
         $item = $request->all();
         Company::create($item);
         return redirect('/home');
     }
 
     public function find(Request $request){
-        $items = Company::where('name', 'LIKE',"%{$request->name}%")->get();
+        $items = Company::where('name','LIKE',"%{$request->input}%")->orWhere('representative','LIKE',"%{$request->input}%")->get();
         return view(index, 'items');
     }
 }

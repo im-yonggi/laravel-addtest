@@ -15,6 +15,7 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->string('property');
             $table->timestamp('created_at')->useCurrent()->nullable();
         });
     }
