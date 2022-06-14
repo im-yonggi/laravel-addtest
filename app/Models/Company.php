@@ -17,7 +17,7 @@ class Company extends Model
         'representative' => 'required'
     );
 
-    public function Property(){
+    public function property(){
         return $this->belongsTo('App\Models\Property');
     }
 }

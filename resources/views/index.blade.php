@@ -43,7 +43,7 @@
       @if($items->property->getProperty = 'lead')
         @foreach($items as $obj)
         <div class="each--client">
-          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
         </div>
         @endforeach
       @endif
@@ -52,7 +52,7 @@
       @if($items->property->getProperty = 'mail')
         @foreach($items as $obj)
         <div class="each--client">
-          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
         </div>
         @endforeach
       @endif
@@ -61,7 +61,7 @@
       @if($items->property->getProperty = 'appointed')
         @foreach($items as $obj)
         <div class="each--client">
-          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
         </div>
         @endforeach
       @endif
@@ -70,7 +70,7 @@
       @if($items->property->getProperty = 'negotiated')
         @foreach($items as $obj)
         <div class="each--client">
-          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
         </div>
         @endforeach
       @endif
@@ -79,7 +79,7 @@
       @if($items->property->getProperty = 'contracted')
         @foreach($items as $obj)
         <div class="each--client">
-          <a href="/{{$obj->id}}" class="client--link">{{$obj}}</a>
+          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
         </div>
         @endforeach
       @endif

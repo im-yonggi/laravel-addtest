@@ -24,7 +24,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/home', [SalesController::class, 'index']);
-    Route::get('/{param}', [SalesController::class, 'edit']);
+    Route::get('/edit/{param}', [SalesController::class, 'edit']);
     Route::post('/update', [SalesController::class, 'update']);
     Route::get('/add', [SalesController::class, 'add']);
     Route::post('/add', [SalesController::class, 'create']);
