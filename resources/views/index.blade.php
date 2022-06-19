@@ -40,7 +40,7 @@
   </div>
   <div class="client--list">
     <div class="lead--list">
-      @if($items->property->getProperty = 'lead')
+      @if($items->property_id = 1)
         @foreach($items as $obj)
         <div class="each--client">
           <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
@@ -49,7 +49,7 @@
       @endif
     </div>
     <div class="mail-sent--list">
-      @if($items->property->getProperty = 'mail')
+      @if($items->property_id = 2)
         @foreach($items as $obj)
         <div class="each--client">
           <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
