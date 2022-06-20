@@ -13,13 +13,13 @@ class SalesController extends Controller
     {
         $user = Auth::user();
         $items = Company::where('user_id', $user->id)->get();
-        return view('index', $items);
+        return view('index',$items);
     }
     
     public function edit($param){
         $id = $param;
         $item = Company::where('id', $id)->first();
-        return view (update, $item);
+        return view ('update', $item);
     }
 
     public function update(Request $request){
@@ -33,7 +33,7 @@ class SalesController extends Controller
     }
 
     public function add(){
-        return view(add);
+        return view('add');
     }
 
     public function create(Request $request){
@@ -46,6 +46,6 @@ class SalesController extends Controller
 
     public function find(Request $request){
         $items = Company::where('name','LIKE',"%{$request->input}%")->orWhere('representative','LIKE',"%{$request->input}%")->get();
-        return view(index, 'items');
+        return view('index', $items);
     }
 }

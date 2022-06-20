@@ -15,8 +15,8 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('property_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('property_id')->constrained();
             $table->string('name');
             $table->string('tel');
             $table->string('email');

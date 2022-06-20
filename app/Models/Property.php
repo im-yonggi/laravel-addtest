@@ -9,13 +9,15 @@ class Property extends Model
 {
     use HasFactory;
 
+    protected $table='properties';
+
     protected $guarded = ['id'];
 
     public static $rules = array(
         'property' => 'required'
     );
 
-    public function getProperty(){
-        return $this->property;
+    public function getId(){
+        return $this->id;
     }
 }
