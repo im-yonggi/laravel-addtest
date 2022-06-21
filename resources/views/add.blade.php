@@ -9,16 +9,8 @@
   <title>Document</title>
 </head>
 <body>
-  <!-- Headerは共通のため、別ファイル移動後yield→それおぞれのページでextendに変更 -->
-  <header class="header">
-    <h1 class="title">SalesManagement</h1>
-    <div class="header--right">
-      <div class="add--button"></div>
-      <div class="setting--button"></div>
-      <div class="logout--button"></div>
-      <!-- Logoutリンクを認証機能から引っ張ってくる -->
-    </div>
-  </header>
+  @component('default.header')
+  @endcomponent
   <div class="client--information">
     <form action="/add" method="post">
       <table>

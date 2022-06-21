@@ -8,6 +8,55 @@
   <title>Document</title>
 </head>
 
+<style>
+.search--container{
+  width:70%;
+  margin:10px auto 10px auto;
+  background-color:white;
+  height:36px;
+}
+
+.search--box{
+  width:100%;
+  height:100%;
+  font-size:24px;
+  color:#d2d2d2;
+  background-color:white;
+}
+
+.client--list{
+  display:flex;
+  justify-content: space-around;
+  margin-top:24px;
+}
+
+.each--list{
+  border:1px solid #d2d2d2;
+  width:15%;
+}
+
+.each--title{
+  text-align: center;
+  border-bottom:1px solid #d2d2d2;
+}
+
+.each--client{
+  margin:8px 4px 8px 4px;
+  background-color:white;
+  height:60px;
+}
+
+.client--link{
+  text-decoration:none;
+  background-color:inherit;
+  color:black;
+  margin-left:12px;
+  line-height:2.5;
+  font-size:24px;
+}
+
+</style>
+
 <body>
   <!-- 
   @if (Route::has('login'))
@@ -23,66 +72,63 @@
   </div>
   @endif-->
 
-  <!-- 追加・更新ページも作成するが、Headerは共通のため、別ファイル移動後yield→それおぞれのページでextendに変更 -->
-  <header class="header">
-    <h1 class="title">SalesManagement</h1>
-    <div class="header--right">
-      <div class="add--button"></div>
-      <div class="setting--button"></div>
-      <div class="logout--button"></div>
-      <!-- Logoutリンクを認証機能から引っ張ってくる -->
-    </div>
-  </header>
+  @component('default.header')
+  @endcomponent
   <div class="search--container">
     <form action="/find" method="post"></form>
     @csrf
     <input type="text" value="企業名または代表者名で検索" name="input" class="search--box">
   </div>
   <div class="client--list">
-    <div class="lead--list">
-      @if($items->property_id = 1)
-        @foreach($items as $obj)
-        <div class="each--client">
-          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
-        </div>
-        @endforeach
-      @endif
+    <div class="each--list">
+      <h2 class="each--title">リード顧客</h2>
+      @foreach($items as $obj)  
+        @if($obj->property_id == 1)
+          <div class="each--client">
+            <a href="/edit/{{$obj->id}}" class="client--link">{{$obj->name}}</a>
+          </div>
+        @endif
+      @endforeach
     </div>
-    <div class="mail-sent--list">
-      @if($items->property_id = 2)
-        @foreach($items as $obj)
+    <div class="each--list">
+      <h2 class="each--title">メール送信済</h2>
+      @foreach($items as $obj)
+        @if($obj->property_id == 2)
         <div class="each--client">
-          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
+          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj->name}}</a>
         </div>
-        @endforeach
-      @endif
+        @endif
+      @endforeach
     </div>
-    <div class="appointed-list">
-      @if($items->property->getProperty = 'appointed')
-        @foreach($items as $obj)
+    <div class="each--list">
+      <h2 class="each--title">日程調整済</h2>
+      @foreach($items as $obj)
+        @if($obj->property_id == 3)
         <div class="each--client">
-          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
+          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj->name}}</a>
         </div>
-        @endforeach
-      @endif
+        @endif
+      @endforeach
     </div>
-    <div class="negotiated--list">
-      @if($items->property->getProperty = 'negotiated')
-        @foreach($items as $obj)
+    <div class="each--list">
+      <h2 class="each--title">商談済</h2>
+      @foreach($items as $obj)
+        @if($obj->property_id == 4)
         <div class="each--client">
-          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
+          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj->name}}</a>
         </div>
-        @endforeach
-      @endif
+        @endif
+      @endforeach
     </div>
-    <div class="contracted--list">
-      @if($items->property->getProperty = 'contracted')
-        @foreach($items as $obj)
+    <div class="each--list">
+      <h2 class="each--title">契約済</h2>
+      @foreach($items as $obj)
+        @if($obj->property_id == 5)
         <div class="each--client">
-          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj}}</a>
+          <a href="/edit/{{$obj->id}}" class="client--link">{{$obj->name}}</a>
         </div>
-        @endforeach
-      @endif
+        @endif
+      @endforeach
     </div>
   </div>
 

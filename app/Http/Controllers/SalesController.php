@@ -13,13 +13,13 @@ class SalesController extends Controller
     {
         $user = Auth::user();
         $items = Company::where('user_id', $user->id)->get();
-        return view('index',$items);
+        return view('index',['items'=>$items]);
     }
     
     public function edit($param){
         $id = $param;
         $item = Company::where('id', $id)->first();
-        return view ('update', $item);
+        return view ('update',['item'=>$item]);
     }
 
     public function update(Request $request){

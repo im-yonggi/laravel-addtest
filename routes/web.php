@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,6 @@ Route::middleware([
     Route::get('/add', [SalesController::class, 'add']);
     Route::post('/add', [SalesController::class, 'create']);
     Route::post('/find', [SalesController::class, 'find']);
-
+    Route::get('/logout', [LoginController::class, 'loggedout']);
+    // ログアウトは最後に確認
 });
