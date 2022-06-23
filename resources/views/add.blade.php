@@ -34,12 +34,12 @@
         <tr>
           <th>セールスステータス</th>
           <td>
-            <select name="property">
-              <option value="リード顧客">リード顧客</option>
-              <option value="メール送信済">メール送信済</option>
-              <option value="日程調整済">日程調整済</option>
-              <option value="商談済">商談済</option>
-              <option value="契約済">契約済</option>
+            <select name="property_id">
+              <option value="1">リード顧客</option>
+              <option value="2">メール送信済</option>
+              <option value="3">日程調整済</option>
+              <option value="4">商談済</option>
+              <option value="5">契約済</option>
             </select>
           </td>
         </tr>

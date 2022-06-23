@@ -39,7 +39,7 @@ class CompaniesTableSeeder extends Seeder
             'property_id' => 3,
             'name' => 'hoge',
             'tel' => '08048681224',
-            'email' => 'hoge@gmai.com',
+            'email' => 'hoge@yahoo.co.jp',
             'representative' => 'hoge',
         ];
         DB::table('companies')->insert($param);
@@ -48,6 +48,16 @@ class CompaniesTableSeeder extends Seeder
             'user_id' => 1,
             'property_id' => 4,
             'name' => 'hoge',
+            'tel' => '08048681224',
+            'email' => 'hoge@gmai.com',
+            'representative' => 'hoge',
+        ];
+        DB::table('companies')->insert($param);
+
+        $param = [
+            'user_id' => 1,
+            'property_id' => 5,
+            'name' => 'partner',
             'tel' => '08048681224',
             'email' => 'hoge@gmai.com',
             'representative' => 'hoge',

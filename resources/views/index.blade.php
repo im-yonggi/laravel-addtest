@@ -16,12 +16,28 @@
   height:36px;
 }
 
+.search--container form{
+  display:flex;
+  height:100%;
+}
+
 .search--box{
-  width:100%;
+  width:90%;
   height:100%;
   font-size:24px;
   color:#d2d2d2;
   background-color:white;
+}
+
+.search--button{
+  height:120%;
+  width:5%;
+  cursor: pointer;
+}
+
+.search--button img{
+  width:100%;
+  height:100%;
 }
 
 .client--list{
@@ -75,9 +91,11 @@
   @component('default.header')
   @endcomponent
   <div class="search--container">
-    <form action="/find" method="post"></form>
+    <form action="/find" method="post">
     @csrf
-    <input type="text" value="企業名または代表者名で検索" name="input" class="search--box">
+      <button class="search--button"><img src="/images/search.png" alt="search-icon"></button>
+      <input type="text" value="企業名または代表者名で検索" name="input" class="search--box">
+    </form>
   </div>
   <div class="client--list">
     <div class="each--list">

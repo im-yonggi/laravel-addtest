@@ -22,6 +22,7 @@ class CreateCompaniesTable extends Migration
             $table->string('email');
             $table->string('representative');
             $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
         });
     }
 

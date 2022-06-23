@@ -1,11 +1,11 @@
 
 <header class="header">
-  <h1 class="title">SalesManagement</h1>
+  <h1 class="title"><a href="/home">SalesManagement</h1>
   <div class="header--right">
     <div class="add--button"><a href="/add"><img src="/images/plus.png"></a></div>
     <div class="setting--button"><img src="/images/setting.png"></div>
-    <div class="logout--button"><a href="/logout">ログアウト</a></div>
-    <!-- Logoutリンクを認証機能から引っ張ってくる -->
+    <div class="logout--button"><a href="/login">ログアウト</a></div>
+    <!-- Auth::logoutをコントローラーに設置 -->
   </div>
 </header>
 
@@ -18,6 +18,11 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header a{
+  text-decoration: none;
+  color:black;
 }
 
 .add--button, .setting--button{
